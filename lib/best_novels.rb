@@ -1,5 +1,2 @@
-require "best_novels/version"
-
-module BestNovels
-  # Your code goes here...
-end
+require_relative "./best_novels/version"
+require_relative "./best_novels/cli"
