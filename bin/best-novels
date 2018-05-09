@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require './lib/best_novels'
+require_relative '../lib/best_novels'
 
 BestNovels::CLI.new.call

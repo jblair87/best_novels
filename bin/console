@@ -11,4 +11,4 @@ require "best_novels"
 # Pry.start
 
 require "irb"
-IRB.start(__FILE__)
+IRB.start
