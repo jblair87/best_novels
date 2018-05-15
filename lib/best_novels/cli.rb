@@ -3,10 +3,15 @@ class BestNovels::CLI
     start
   end
 
-def list
-    puts "The Guardian's Best Novels Ever Written:"
-    @novels =  BestNovels::Novel.all
-   end
+
+  def list
+    puts ""
+      puts "The Guardian's Best Novels Ever Written:"
+      puts ""
+      BestNovels::Novel.all.each.with_index(1) do |novel, i|
+      puts "{i}. #{novel.title} - #{novel.author} - #{novel.year}"
+  end
+     end
 
 
 def print_novel(novel)
@@ -29,7 +34,7 @@ def start
     input = gets.strip.downcase
     if input == "list"
     list
-  else input.to_i > 0
+  elsif input.to_i == 0
     if novel = BestNovels::Novel.find_by_name(input)
     print_novel(novel)
     end
