@@ -1,19 +1,13 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
+class BestNovels::Scraper
 
-class Scraper
-def scrape_best_novels
+def self.scrape_best_novels
   doc = Nokogiri::HTML(open("https://www.theguardian.com/books/2015/aug/17/the-100-best-novels-written-in-english-the-full-list"))
-     doc.css("div.content__article-body").collect do |novel|
+     doc.css("div.content__article-body p").each do |novel|
         novel_info = {
-        :title =>  novel.css("p.u-underline strong a").text,
-        :author => novel.css("p strong").text,
+        :title =>  novel.css("u-underline strong a").text,
     :summary => novel.css("p").text
         }
        novel_info
-binding.pry
       end
   end
 end
-Scraper.new.scrape_best_novels
