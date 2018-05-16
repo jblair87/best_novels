@@ -11,11 +11,7 @@ def initialize(title=nil, author=nil, year=nil)
 end
 
 def self.all
-  @@all
-end
-
-  def self.all
-    @@all ||= scrape_best_novels
+    @@all
   end
 
   def self.find(id)
@@ -29,20 +25,23 @@ end
     end
   end
 
-
-def description
-end
-
-def url
-end
-
-
 private
 
-
 def scrape_best_novels
-doc = Nokogiri::HTML(open("https://www.theguardian.com/books/2015/aug/17/the-100-best-novels-written-in-english-the-full-list"))
-end
+  guardian = Nokogiri::HTML(open("https://www.theguardian.com/books/2015/aug/17/the-100-best-novels-written-in-english-the-full-list"))
+    guardian.css(".content__article-body").collect do |novel|
+      novel_info = {
+        :title => novel.css(".u-underline").text,
+        :author => novel.css("p").text.strip,
+        :year => novel.css("p").text.strip,
+  :summary => novel.css("p").text
+
+      }
+
+      novel_info
+    end
+  end
+
 
 
 end
