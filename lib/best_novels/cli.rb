@@ -1,5 +1,6 @@
 class BestNovels::CLI
   def call
+    list
     start
   end
 
@@ -9,16 +10,16 @@ class BestNovels::CLI
       puts "The Guardian's Best Novels Ever Written:"
       puts ""
       BestNovels::Novel.all.each.with_index(1) do |novel, i|
-      puts "{i}. #{novel.title} - #{novel.author} - #{novel.year}"
+      puts "{i}. #{novel.title} - #{novel.author}"
   end
      end
 
 
 def print_novel(novel)
 puts ""
-puts "#{novel.title} - #{novel.author} - #{novel.year}"
+puts "#{novel.title} - #{novel.author}"
 puts ""
-puts novel.description
+puts novel.summary
 puts ""
 end
 
@@ -40,9 +41,7 @@ def start
     end
   end
  end
- end
+ puts "Goodbye!!!"
 
-def goodbye
-  puts "Goodbye"
 end
 end
