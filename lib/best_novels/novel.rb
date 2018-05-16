@@ -1,11 +1,10 @@
 class BestNovels::Novel
-  attr_accessor :title, :author, :summary
+  attr_accessor :title, :summary
 
   @@all = []
 
-def initialize(title=nil, author=nil, summary=nil)
+def initialize(title=nil, author=nil)
   @title = title
-  @author = author
   @summary =summary
   @@all << self
 end
