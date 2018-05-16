@@ -28,16 +28,14 @@ def start
     input = nil
     while input != "exit"
       puts ""
-       puts "Enter the name of the novel you would like more information on, type 'list' to see the list of novels again or type 'exit' to leave the program"
+       puts "Enter the number of the novel you would like more information on, type 'list' to see the list of novels again or type 'exit' to leave the program"
       puts ""
-    input = gets.strip.downcase
+    input = gets.strip
     if input == "list"
     list
-  elsif input.to_i == 0
-    if novel = BestNovels::Novel.find(input.to_i)
+  elsif input.to_i > 0 &&  BestNovels::Novel.all[input.to_i]
     print_novel(novel)
     end
-  end
  end
  puts "Goodbye!!!"
 

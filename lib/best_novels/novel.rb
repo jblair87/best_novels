@@ -1,27 +1,19 @@
 class BestNovels::Novel
   attr_accessor :title, :summary
+ @@all = []
 
-  @@all = []
+ def self.all
+   @@all
+   end
 
-def initialize(title=nil, author=nil)
+def initialize(title, summary)
   @title = title
   @summary =summary
-  @@all << self
+   @@all << self
 end
 
-def self.all
-    @@all
-  end
 
   def self.find(id)
-    @@all[id.to_i-1]
-  end
-
-  def self.find_by_name(name)
-    @@all.detect do |m|
-      m.name.downcase.strip == name.downcase.strip ||
-      m.name.split("(").first.strip.downcase == name.downcase.strip
-    end
-  end
-
+     self.all[id-1]
+   end
 end
