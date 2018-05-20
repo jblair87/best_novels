@@ -1,19 +1,19 @@
 class BestNovels::Novel
-  attr_accessor :title, :summary
+  attr_accessor :title, :summary, :url
  @@all = []
 
- def self.all
-   @@all
-   end
-
-def initialize(title, summary)
+def initialize(title, summary, url)
   @title = title
-  @summary =summary
+  @summary = summary
+  @url = url
    @@all << self
 end
 
+  def self.all
+   @@all
+   end 
 
-  def self.find(id)
-     self.all[id-1]
+  def self.find(input)
+     self.all[input-1]
    end
 end
