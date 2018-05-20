@@ -9,7 +9,7 @@ class BestNovels::CLI
     puts ""
       puts "The Guardian's Best Novels Ever Written:"
       puts ""
-      BestNovels::Scraper.scrape_best_novels
+      BestNovels::Scraper.scrape_list_page
       BestNovels::Novel.all.each.with_index(1) do |novel, i|
       puts "{i}. #{novel.title}"
   end
@@ -33,7 +33,7 @@ def start
     input = gets.strip
     if input == "list"
     list
-  elsif input.to_i > 0 &&  BestNovels::Novel.all[input.to_i]
+  elsif input.to_i > 0 
     print_novel(novel)
     end
  end
