@@ -6,7 +6,7 @@ attr_accessor :title, :summary, :novel_url
 def initialize(title = nil, summary = nil,  novel_url = nil)
   @title = title
   @summary = summary
-  @novel_url = url
+  @novel_url = novel_url
    @@all << self
 end
 
@@ -24,10 +24,13 @@ def self.all
    end
 
 
-   def details
+   def self.details
        info = BestNovels::Scraper.scrape_novel_details
        self.summary = info.values_at(:summary).join
+       self.novel_url = info.values_at(:novel_url).join
        puts "#{self.summary}"
+       puts ""
+       puts "#{self.novel_url}"
      end
 
 end
