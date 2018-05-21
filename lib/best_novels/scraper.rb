@@ -14,7 +14,7 @@ def self.scrape_novel_details(url)
   details = {}
    doc = Nokogiri::HTML(open(url))
    details[:summary] = doc.css("p").text
-   novel_url[:novel_url] = novel.css("a").first.attr("href").strip
+   novel_url[:novel_url] = doc.css("a").first.attr("href").strip
    details
   end
 
