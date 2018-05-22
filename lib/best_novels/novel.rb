@@ -23,8 +23,11 @@ def self.all
      self.all[input-1]
    end
 
+   def self.list_novels
+      @@all.each.with_index(1) {|novel, index| puts "#{index}. #{novel.title}"}
+    end
 
-   def self.details
+   def details
        info = BestNovels::Scraper.scrape_novel_details
        self.summary = info.values_at(:summary).join
        self.novel_url = info.values_at(:novel_url).join
