@@ -14,6 +14,13 @@ def self.all
     @@all
   end
 
+  def self.find_by_title(input)
+    self.all.detect do |n|
+      n.title.downcase.strip == title.downcase.strip ||
+      n.title.split("(").first.strip.downcase == title.downcase.strip
+    end
+  end
+
   def self.all_clear
     @@all.clear
   end
@@ -23,17 +30,6 @@ def self.all
      self.all[input-1]
    end
 
-   def self.list_novels
-      @@all.each.with_index(1) {|novel, index| puts "#{index}. #{novel.title}"}
-    end
-
-   def details
-       info = BestNovels::Scraper.scrape_novel_details
-       self.summary = info.values_at(:summary).join
-       self.novel_url = info.values_at(:novel_url).join
-       puts "#{self.summary}"
-       puts ""
-       puts "#{self.novel_url}"
-     end
+   
 
 end
