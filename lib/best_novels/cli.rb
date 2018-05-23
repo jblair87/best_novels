@@ -11,13 +11,12 @@ class BestNovels::CLI
       #BestNovels::Novel.destroy
       BestNovels::Scraper.scrape_novels
       BestNovels::Novel.all.each.with_index(1) do |novel, i|
-      puts "---- #{1}. #{novel.title} ---"
+      puts "---- #{i}. #{novel.title} ---"
       puts ""
     end
   end
 
    def print_novel(novel)
-     puts "#{novel.title}"
      puts ""
      puts "#{novel.summary}"
      puts ""
