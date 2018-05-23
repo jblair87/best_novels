@@ -10,6 +10,10 @@ def initialize(title = nil, summary = nil,  novel_url = nil)
    @@all << self
 end
 
+def save
+    @@all << self
+  end
+
 def self.all
     @@all
   end
@@ -30,6 +34,9 @@ def self.all
      self.all[input-1]
    end
 
-   
+   def self.destroy
+      @@all = []
+    end
+
 
 end
