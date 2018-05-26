@@ -10,6 +10,14 @@ def initialize(title = nil, summary = nil,  novel_url = nil)
    @@all << self
 end
 
+def self.create(novel_array)
+novel_array.each {|novel| self.new(novel)}
+end
+
+def self.list_novels
+@@all.each.with_index(1) {|novel, index| puts "#{index}. #{novel.title}"}
+end
+
 def save
     @@all << self
   end
@@ -17,18 +25,6 @@ def save
 def self.all
     @@all
   end
-
-  def self.find_by_title(input)
-    self.all.detect do |n|
-      n.title.downcase.strip == title.downcase.strip ||
-      n.title.split("(").first.strip.downcase == title.downcase.strip
-    end
-  end
-
-  def self.all_clear
-    @@all.clear
-  end
-
 
   def self.find(input)
      self.all[input-1]
