@@ -1,5 +1,6 @@
 class BestNovels::CLI
   def call
+    BestNovels::Scraper.new.scrape_novels
     puts "Welcome to the 100 Best Novels Gem"
     start
   end
@@ -9,18 +10,16 @@ class BestNovels::CLI
       puts "The Guardian's Best Novels Ever Written:"
       puts ""
       #BestNovels::Novel.destroy
-      BestNovels::Scraper.scrape_novels
-      BestNovels::Novel.all.each.with_index(1) do |novel, i|
-      puts "---- #{i}. #{novel.title} ---"
-      puts ""
-    end
-  end
+      BestNovels::Novel.list_novels
+end
 
    def print_novel(novel)
      puts ""
+     puts "----------#{novel.title}-------------"
+     puts ""
      puts "#{novel.summary}"
      puts ""
-     puts "Novel information found at #{novel.novel_url}"
+     puts "Learn more at #{novel.novel_url}"
   end
 
 def start
