@@ -10,7 +10,8 @@ class BestNovels::CLI
       puts "The Guardian's Best Novels Ever Written:"
       puts ""
       #BestNovels::Novel.destroy
-      BestNovels::Novel.list_novels
+      BestNovels::Novel.all.each.with_index(1) {|novel, index|
+      puts "#{index}. #{novel.title}"}
 end
 
    def print_novel(novel)
