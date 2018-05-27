@@ -5,9 +5,9 @@ def scrape_novels
   best_novels = doc.css(".content__article-body.from-content-api.js-article__body").to_a
   best_novels.each.with_index do |novel, i|
   novel = BestNovels::Novel.new
-  novel.title = doc.css("p .u-underline")[i].text
+  novel.title = doc.css("p:nth-child(1) a.u-underline")[i].text
   novel.novel_url = doc.css("a")[i].attr("href")
-  novel.summary = doc.css("p")[i].text.gsub("/s"," ")
+  novel.summary = doc.css("div.content__main-column div.content__article-body p:nth-child(2)")[i].text.gsub("/t"," ").gsub("/n"," ")
   novel.save
   #novel << {title: title, novel_url: novel_url}
   end
