@@ -1,16 +1,14 @@
-
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "best_novels/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "best_novels"
   spec.version       = BestNovels::VERSION
-  spec.authors       = ["'Jenna Mandel'"]
-  spec.email         = ["'jenna.b.mandel@gmail.com'"]
+  spec.authors       = ["Jenna Mandel"]
+  spec.email         = ["jenna.b.mandel@gmail.com"]
 
-  spec.summary       = %q{A command line interface for the 100 best novels ever written (in English)
-}
+  spec.summary       = %q{A command line interface for 100 best novels}
   spec.homepage      = "https://github.com/jblair87/best_novels.git"
   spec.license       = "MIT"
 
@@ -31,9 +29,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
+  spec.add_development_dependency "nokogiri"
+  spec.add_development_dependency "pry"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "nokogiri"
-
 end
