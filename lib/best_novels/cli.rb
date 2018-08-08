@@ -10,8 +10,9 @@ class BestNovels::CLI
       puts "The Guardian's Best Novels Ever Written:"
       puts ""
       #BestNovels::Novel.destroy
-      BestNovels::Novel.all.each.with_index(1) {|novel, index|
-      puts "#{index}. #{novel.title}"}
+      BestNovels::Novel.all.each.with_index(1) do |novel, index|
+      puts "#{index}. #{novel.title}"
+end
 end
 
    def print_novel(novel)
@@ -28,24 +29,19 @@ def start
     while input != "exit"
       puts ""
       puts "Enter 'list' to see the list of novels again"
-      puts "Enter 'more info' to learn more about a novel"
+      puts "Enter the number '1-100' to learn more about a novel"
       puts "Enter 'exit' to leave the program"
       puts ""
       input = gets.strip
       if input == "list"
       list
-     elsif input == "more info"
-          puts "What novel would you more information on?"
-          input = gets.strip.downcase
-          novel = BestNovels::Novel.find(input.to_i)
-                if novel
-                print_novel(novel)
-                else
-                  puts "Invalid Entry"
-                end
-    else input == "exit"
+    elsif input.to_i > 0
+              if novel = BestNovels::Novel.find(input.to_i)
+               print_novel(novel)
+           end
+else
     puts "Goodbye!!!"
-      exit
+
     end
   end
 end
