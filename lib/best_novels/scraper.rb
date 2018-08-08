@@ -5,8 +5,8 @@ def self.scrape_novels
   content = doc.css("div.content__article-body").to_a
   content.each.with_index do |novel, i|
   novel = BestNovels::Novel.new
-  novel.title = doc.css("div.content__article-body a.u-underline")[i].text
-  novel.novel_url = doc.css("div.content__article-body strong a.u-underline")[i].attr("href")
+  novel.title = doc.css("p a.u-underline")[i].text
+  novel.novel_url = doc.css("p strong a.u-underline")[i].attr("href")
   #novel.summary = new_novel.css("p:nth-of-type(even)").text.gsub("/t", " ").gsub("/n", " ")
   #novels << new_novel
 novel.save
