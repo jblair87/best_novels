@@ -1,13 +1,13 @@
-class BestNovels::CLI
+class BestNovel::CLI
   def call
-    BestNovels::Scraper.new.scrape_novels
     puts "Welcome to the 100 Best Novels Gem"
+    BestNovel::Scraper.new.scrape_novels
     start
   end
 
   def list
         puts ""
-        BestNovels::Novel.all.each_with_index do |novel, i|
+        BestNovel::Novel.all.each_with_index do |novel, i|
         puts "#{i+1}. #{novel.title}"
    end
  end
@@ -25,7 +25,7 @@ class BestNovels::CLI
       if input == "list"
         list
       elsif input.to_i > 0
-        novel = BestNovels::Novel.all[input.to_i-1]
+        novel = BestNovel::Novel.all[input.to_i-1]
           puts ""
           puts novel.title
           puts ""

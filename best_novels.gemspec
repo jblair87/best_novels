@@ -1,10 +1,10 @@
-lib = File.expand_path("lib", __dir__)
+lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "best_novels/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "best_novels"
-  spec.version       = BestNovels::VERSION
+  spec.version       = BestNovel::VERSION
   spec.authors       = ["Jenna Mandel"]
   spec.email         = ["jenna.b.mandel@gmail.com"]
 
