@@ -36,7 +36,7 @@ PLATFORMS
 DEPENDENCIES
   best_novels!
   bundler (~> 1.16)
-  nokogiri
+  nokogiri (~> 1.10.4)
   pry
   rake (~> 10.0)
   rspec
