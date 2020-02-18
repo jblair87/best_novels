@@ -1,8 +1,12 @@
 class BestNovel::Novel
+attr_accessor :title,  :novel_url
 @@all = []
 
-attr_accessor :title,  :novel_url
-
+ def intialize(title, novel_url)
+   @title = title
+   @novel_url = novel_url
+   save
+ end
 
 def self.all
     @@all
