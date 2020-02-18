@@ -1,7 +1,8 @@
-class Novel
+class BestNovel::Novel
 @@all = []
 
-attr_accessor :title, :summary, :novel_url
+attr_accessor :title,  :novel_url
+
 
 def self.all
     @@all
