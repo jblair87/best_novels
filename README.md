@@ -1,8 +1,7 @@
 # BestNovels
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/best_novels`. To experiment with that code, run `bin/console` for an interactive prompt.
+Find out about the The Guardian's 100 best novels written in English.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
